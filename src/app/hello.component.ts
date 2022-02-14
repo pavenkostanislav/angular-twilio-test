@@ -11,16 +11,16 @@ const client = twilio(ACCOUNT_SID, AUTH_TOKEN);
   <button type="button" (click)="onCall()" title="bigger">call</button>`,
 })
 export class HelloComponent {
-  msg: string;
+  msg: string = "What's happened here?";
   onCall() {
     const requestMsg = {
-      body: "What's happened here?",
+      body: this.msg,
       from: '+18124192136',
       mediaUrl: ['https://demo.twilio.com/owl.png'],
       to: '+79202909001',
     };
     console.log(requestMsg);
 
-    client.messages.create(requestMsg).then((msg) => console.log(msg));
+    // client.messages.create(requestMsg).then((msg) => console.log(msg));
   }
 }
